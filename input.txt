@@ -1,0 +1,22 @@
+* Example assembler program for COMP360
+*
+      la   R8,addr
+      ld   R1, stuff[R8]
+      ld   R2, addr[R8]
+more  add  R1, R2, R3
+      mult R3, R2, R4
+      jn   R4, more
+      sub  R4, R1, R5
+      jz   R3, nodiv
+      div  R5, R3, R6
+nodiv st   R6, addr
+      push R6
+      call  mthd
+addr  spsw R10
+      add  R10, R2, R7
+      lpsw R7
+      jmp more
+*  sort of a method
+mthd  pop R1
+stuff rtn
+*
